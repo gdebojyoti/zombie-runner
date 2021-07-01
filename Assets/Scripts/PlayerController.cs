@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 
     public int positionMultiplier = 1;
     public GameObject playerGo;
-    public float movementSpeed = 1f;
+    public float movementSpeed = 20f;
   
   #endregion
 
@@ -25,11 +25,7 @@ public class PlayerController : MonoBehaviour {
   }
 
   void FixedUpdate() {
-    // get user input values
-    float inputX = Input.GetAxis("Horizontal");
-    float inputY = Input.GetAxis("Vertical");
-
-    _Move(inputX, inputY);
+    _Move();
   }
 
   void Update() {
@@ -38,12 +34,15 @@ public class PlayerController : MonoBehaviour {
 
   #region private methods
 
-    private void _Move(float inputX, float inputY) {
-      // // speed to be applied in current frame
-      // float speedPerFrame = speed * Time.deltaTime;
+    private void _Move() {
+      // speed to be applied in current frame
+      float speedPerFrame = movementSpeed * m_movementSpeedMultiplier * Time.deltaTime;
 
-      // move rigidbody
-      m_rb.velocity = new Vector2(movementSpeed * m_movementSpeedMultiplier, 0);
+      // // move rigidbody
+      // m_rb.velocity = new Vector2(speedPerFrame, 0);
+
+      // move self
+      transform.Translate(speedPerFrame, 0, 0);
     }
 
     private void _CheckForInputs () {
