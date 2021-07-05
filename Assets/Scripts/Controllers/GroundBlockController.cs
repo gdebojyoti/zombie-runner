@@ -51,11 +51,11 @@ public class GroundBlockController : MonoBehaviour {
     private void _InitObstacles () {
       GameObject child1 = Instantiate(zombiePrefab, transform.position, Quaternion.identity);
       child1.transform.SetParent(transform);
-      child1.transform.localPosition = new Vector3(1, 0, 0);
+      child1.transform.localPosition = new Vector2(1, 0);
       
       GameObject child2 = Instantiate(zombiePrefab, transform.position, Quaternion.identity);
       child2.transform.SetParent(transform);
-      child2.transform.localPosition = new Vector3(3, 0, 0);
+      child2.transform.localPosition = new Vector2(3, 0);
     }
 
   #endregion
