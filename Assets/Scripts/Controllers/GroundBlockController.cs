@@ -38,6 +38,7 @@ public class GroundBlockController : MonoBehaviour {
     }
 
     private void _Initialize () {
+      // TODO: regenerate obstacles
       // generate obstacles if not already done
       if (!m_ObstaclesInitialized) {
         _InitObstacles();
