@@ -5,8 +5,8 @@ public class GroundBlockController : MonoBehaviour {
   #region public members
 
     public float baseMovementSpeed = -2f;
-    public float limit = -14f;
-    public float buffer = 25f;
+    public float limit = -14f; // position.x after crossing which block is to be placed at the right-most end
+    public float buffer = 25f; // distance by which block is to be moved (reset) after it crosses `limit`
 
   #endregion
 
