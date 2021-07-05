@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class GroundBlockController : MonoBehaviour {
   
-  public float baseMovementSpeed = -1f;
-  public float limit = -14f;
-  public float buffer = 25f;
+  #region public members
+
+    public float baseMovementSpeed = -2f;
+    public float limit = -14f;
+    public float buffer = 25f;
+
+  #endregion
 
 
   private void FixedUpdate() {
@@ -15,7 +19,7 @@ public class GroundBlockController : MonoBehaviour {
 
     private void _Move() {
       // speed to be applied in current frame
-      float speedPerFrame = baseMovementSpeed * DetailsService.GetWorldMovementMultiplier() * Time.deltaTime;
+      float speedPerFrame = baseMovementSpeed * GameService.GetWorldMovementMultiplier() * Time.deltaTime;
 
       // move self
       transform.Translate(speedPerFrame, 0, 0);
