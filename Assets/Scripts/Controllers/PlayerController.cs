@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
   #region public members
 
     public int positionMultiplier = 1;
+    public GameObject bulletPrefab;
   
   #endregion
 
@@ -17,26 +18,36 @@ public class PlayerController : MonoBehaviour {
 
   #endregion
 
-  void Start() {
-    this.m_rb = GetComponent<Rigidbody2D>();
-  }
+  #region MonoBehaviour methods
 
-  void Update() {
-    _CheckForInputs();
-  }
+    private void Start() {
+      this.m_rb = GetComponent<Rigidbody2D>();
+    }
 
-  private void OnCollisionEnter2D(Collision2D other) {
-    Debug.Log("collided with: " + other.gameObject.tag);
-  }
+    private void Update() {
+      _CheckForInputs();
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+      Debug.Log("collided with: " + other.gameObject.tag);
+    }
+
+  #endregion
 
   #region private methods
 
     private void _CheckForInputs () {
+      // press 'W' / 'S' or up / down arrow keys to switch between lanes
       if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) {
         _SwitchLanes(1);
       }
       if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
         _SwitchLanes(-1);
+      }
+
+      // press 'F' to fire bullets
+      if (Input.GetKeyDown(KeyCode.F)) {
+        _Fire();
       }
     }
 
@@ -49,6 +60,10 @@ public class PlayerController : MonoBehaviour {
       }
 
       transform.position = new Vector2(transform.position.x, m_laneId * positionMultiplier);
+    }
+
+    private void _Fire () {
+      GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
 
   #endregion
