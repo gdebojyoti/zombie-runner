@@ -7,6 +7,13 @@ public class GroundBlockController : MonoBehaviour {
     public float baseMovementSpeed = -2f;
     public float limit = -14f; // position.x after crossing which block is to be placed at the right-most end
     public float buffer = 25f; // distance by which block is to be moved (reset) after it crosses `limit`
+    public GameObject zombiePrefab;
+
+  #endregion
+
+  #region private members
+
+    private bool m_ObstaclesInitialized = false;
 
   #endregion
 
@@ -26,9 +33,30 @@ public class GroundBlockController : MonoBehaviour {
 
       // place self at the end (on right side) if self has moved too far to the left
       if (transform.position.x < limit) {
-        transform.position = new Vector2(transform.position.x + buffer, 0);
+        _Initialize();
       }
     }
 
-    #endregion
+    private void _Initialize () {
+      // generate obstacles if not already done
+      if (!m_ObstaclesInitialized) {
+        _InitObstacles();
+        m_ObstaclesInitialized = true;
+      }
+
+      // reposition self
+      transform.position = new Vector2(transform.position.x + buffer, 0);
+    }
+
+    private void _InitObstacles () {
+      GameObject child1 = Instantiate(zombiePrefab, transform.position, Quaternion.identity);
+      child1.transform.SetParent(transform);
+      child1.transform.localPosition = new Vector3(1, 0, 0);
+      
+      GameObject child2 = Instantiate(zombiePrefab, transform.position, Quaternion.identity);
+      child2.transform.SetParent(transform);
+      child2.transform.localPosition = new Vector3(3, 0, 0);
+    }
+
+  #endregion
 }

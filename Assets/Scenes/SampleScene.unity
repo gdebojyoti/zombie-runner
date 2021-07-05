@@ -257,6 +257,7 @@ MonoBehaviour:
   baseMovementSpeed: -2
   limit: -14
   buffer: 25
+  zombiePrefab: {fileID: 7281821624037485799, guid: 71e9296b13b474981a5f130406fae313, type: 3}
 --- !u!1 &68238023
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +873,7 @@ MonoBehaviour:
   baseMovementSpeed: -2
   limit: -14
   buffer: 25
+  zombiePrefab: {fileID: 7281821624037485799, guid: 71e9296b13b474981a5f130406fae313, type: 3}
 --- !u!1 &230822946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,6 +1373,7 @@ MonoBehaviour:
   baseMovementSpeed: -2
   limit: -14
   buffer: 25
+  zombiePrefab: {fileID: 7281821624037485799, guid: 71e9296b13b474981a5f130406fae313, type: 3}
 --- !u!1 &405883056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2487,7 @@ MonoBehaviour:
   baseMovementSpeed: -2
   limit: -14
   buffer: 25
+  zombiePrefab: {fileID: 7281821624037485799, guid: 71e9296b13b474981a5f130406fae313, type: 3}
 --- !u!1 &695076929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,6 +4165,7 @@ MonoBehaviour:
   baseMovementSpeed: -2
   limit: -14
   buffer: 25
+  zombiePrefab: {fileID: 7281821624037485799, guid: 71e9296b13b474981a5f130406fae313, type: 3}
 --- !u!1 &1177859279
 GameObject:
   m_ObjectHideFlags: 0

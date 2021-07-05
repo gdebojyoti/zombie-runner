@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour {
     _CheckForInputs();
   }
 
+  private void OnCollisionEnter2D(Collision2D other) {
+    Debug.Log("collided with: " + other.gameObject.tag);
+  }
+
   #region private methods
 
     private void _CheckForInputs () {
