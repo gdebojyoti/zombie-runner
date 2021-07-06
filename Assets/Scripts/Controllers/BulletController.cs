@@ -35,7 +35,7 @@ public class BulletController : MonoBehaviour {
 
     private void _Travel () {
       // speed to be applied in current frame
-      float speedPerFrame = speed * Time.deltaTime;
+      float speedPerFrame = speed * Time.fixedDeltaTime;
 
       // move self
       m_rb.velocity = new Vector2(1, 0) * speedPerFrame;

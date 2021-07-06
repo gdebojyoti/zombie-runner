@@ -26,7 +26,7 @@ public class GroundBlockController : MonoBehaviour {
 
     private void _Move() {
       // speed to be applied in current frame
-      float speedPerFrame = baseMovementSpeed * GameService.GetWorldMovementMultiplier() * Time.deltaTime;
+      float speedPerFrame = baseMovementSpeed * GameService.GetWorldMovementMultiplier() * Time.fixedDeltaTime;
 
       // move self
       transform.Translate(speedPerFrame, 0, 0);
