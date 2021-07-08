@@ -1,3 +1,5 @@
+// define player controls
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,7 +71,6 @@ public class PlayerController : MonoBehaviour {
       // update internal variables
       m_target = new Vector2(transform.position.x, m_laneId * positionMultiplier);
       m_isMoving = true;
-      // transform.position = new Vector2(transform.position.x, m_laneId * positionMultiplier);
     }
 
     private void _Fire () {
