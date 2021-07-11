@@ -5,6 +5,7 @@ public class GroundController : MonoBehaviour {
   #region public members
 
     public float baseMovementSpeed = -2f;
+    public GameObject groundPrefab;
     public GameObject zombiePrefab;
     public float width = 10f; // width of ground block (i.e., self)
 
@@ -13,7 +14,8 @@ public class GroundController : MonoBehaviour {
   #region private members
 
     private bool m_NextBlockInitialized = false;
-    private float cameraWidth; // width of camera, used to decide when to create & delete ground blocks
+    private float m_cameraWidth; // width of camera, used to decide when to create & delete ground blocks
+    private string m_enemyName = "enemy";
 
   #endregion
 
@@ -22,13 +24,16 @@ public class GroundController : MonoBehaviour {
     private void Start () {
       // calculate camera width (TODO: can be moved to GameService)
       Camera m_camera = Camera.main;
-      cameraWidth = m_camera.aspect * 2f * m_camera.orthographicSize;
+      m_cameraWidth = m_camera.aspect * 2f * m_camera.orthographicSize;
+
+      _ClearOldObstacles();
+      _InitObstacles();
     }
 
     private void FixedUpdate () {
       _Move();
-      _CheckForEnd();
-      _CheckIfOutsideViewport();
+      _IsGroundNeeded();
+      _DidLeaveViewport();
     }
 
   #endregion
@@ -43,18 +48,19 @@ public class GroundController : MonoBehaviour {
       transform.Translate(speedPerFrame, 0, 0);
     }
 
-    // check whether new ground block needs to be instantiated
-    private void _CheckForEnd () {
+    // check whether new ground block needs to be created
+    private void _IsGroundNeeded () {
       if (m_NextBlockInitialized) {
         return;
       }
-      if ((transform.position.x + width) < cameraWidth) {
+      if ((transform.position.x + width) < m_cameraWidth) {
         _CreateNextGround();
       }
     }
 
-    private void _CheckIfOutsideViewport () {
-      if ((transform.position.x + width) < -cameraWidth) {
+    // check whether current ground block has left camera viewport
+    private void _DidLeaveViewport () {
+      if ((transform.position.x + width) < -m_cameraWidth) {
         Destroy(gameObject);
       }
     }
@@ -63,27 +69,39 @@ public class GroundController : MonoBehaviour {
     private void _CreateNextGround () {
       // instantiate new ground from self
       GameObject newGround = Instantiate(
-        gameObject,
+        groundPrefab,
         new Vector2(transform.position.x + width - .06f, transform.position.y),
-        Quaternion.identity
+        Quaternion.identity,
+        transform.parent
       );
 
-      // set name & parent
       newGround.name = "Ground";
-      newGround.transform.SetParent(transform.parent);
 
       // update flag
       m_NextBlockInitialized = true;
     }
 
+    private void _ClearOldObstacles () {
+      foreach (Transform child in transform) {
+        if (child.name == m_enemyName) {
+          Destroy(child.gameObject);
+        }
+      }
+    }
+
     private void _InitObstacles () {
-      GameObject child1 = Instantiate(zombiePrefab, transform.position, Quaternion.identity);
-      child1.transform.SetParent(transform);
+      // generate obstacles only if block is outside camera view
+      if (transform.position.x < m_cameraWidth / 2) {
+        return;
+      }
+
+      GameObject child1 = Instantiate(zombiePrefab, transform.position, Quaternion.identity, transform);
       child1.transform.localPosition = new Vector2(1, 0);
+      child1.name = m_enemyName;
       
-      GameObject child2 = Instantiate(zombiePrefab, transform.position, Quaternion.identity);
-      child2.transform.SetParent(transform);
+      GameObject child2 = Instantiate(zombiePrefab, transform.position, Quaternion.identity, transform);
       child2.transform.localPosition = new Vector2(3, 0);
+      child2.name = m_enemyName;
     }
 
   #endregion

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 816011813208973846}
   - component: {fileID: 816011813208973850}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2954484553112243784}
-  - component: {fileID: 2954484553112243785}
+  - component: {fileID: 3949677208033752772}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2954484553112243785
+--- !u!114 &3949677208033752772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMovementSpeed: -2
-  limit: -14
+  groundPrefab: {fileID: 2954484553112243791}
   zombiePrefab: {fileID: 7281821624037485799, guid: 71e9296b13b474981a5f130406fae313, type: 3}
   width: 10
-  buffer: 10
