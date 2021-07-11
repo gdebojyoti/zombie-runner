@@ -16,6 +16,13 @@ public class GroundController : MonoBehaviour {
     private bool m_NextBlockInitialized = false;
     private float m_cameraWidth; // width of camera, used to decide when to create & delete ground blocks
     private string m_enemyName = "enemy";
+    private Vector2[] m_enemyPositions = new Vector2[]{
+      new Vector2(1,0),
+      new Vector2(3,1),
+      new Vector2(6,0),
+      new Vector2(8,-1),
+      new Vector2(9,1)
+    };
 
   #endregion
 
@@ -95,13 +102,11 @@ public class GroundController : MonoBehaviour {
         return;
       }
 
-      GameObject child1 = Instantiate(zombiePrefab, transform.position, Quaternion.identity, transform);
-      child1.transform.localPosition = new Vector2(1, 0);
-      child1.name = m_enemyName;
-      
-      GameObject child2 = Instantiate(zombiePrefab, transform.position, Quaternion.identity, transform);
-      child2.transform.localPosition = new Vector2(3, 0);
-      child2.name = m_enemyName;
+      foreach(Vector2 position in m_enemyPositions) {
+        GameObject enemy = Instantiate(zombiePrefab, transform.position, Quaternion.identity, transform);
+        enemy.transform.localPosition = position;
+        enemy.name = m_enemyName;
+      }
     }
 
   #endregion
