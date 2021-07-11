@@ -1,3 +1,5 @@
+// NOTE: Deprecated file. To be replaced by GroundController.cs.
+
 using UnityEngine;
 
 public class GroundBlockController : MonoBehaviour {
