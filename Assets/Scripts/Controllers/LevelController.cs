@@ -30,6 +30,8 @@ public class LevelController : MonoBehaviour {
         _SetWeapon(3);
       } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
         _SetWeapon(4);
+      } else if (Input.GetKeyDown(KeyCode.Alpha0)) {
+        _SetWeapon(0); // drop weapon
       }
     }
 
@@ -38,6 +40,7 @@ public class LevelController : MonoBehaviour {
         weaponHandler.weapon = weapons[type - 1];
       } else {
         Debug.Log("Invalid weapon selected");
+        weaponHandler.weapon = null;
       }
     }
 
