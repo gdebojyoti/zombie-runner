@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public float verticalSpeed = 10f;
     public FloatReference maxHp; // max hit points that player can have
     public FloatReference hp; // current hit points that player has
+    public WeaponHandler weaponHandler;
   
   #endregion
 
@@ -80,6 +81,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void _Fire () {
+      weaponHandler.weapon?.Fire();
       GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
 

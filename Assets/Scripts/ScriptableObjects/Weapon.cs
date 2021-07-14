@@ -16,4 +16,8 @@ public class Weapon: ScriptableObject {
   public float damagePerShot; // damage per shot
   public float rpm; // rounds per minute
   [Range(0.0f, 1.0f)] public float chance;
+
+  public void Fire () {
+    Debug.Log(weaponName + " is firing!");
+  }
 }
