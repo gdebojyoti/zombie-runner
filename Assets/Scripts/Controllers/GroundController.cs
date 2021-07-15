@@ -7,7 +7,12 @@ public class GroundController : MonoBehaviour {
     public float baseMovementSpeed = -2f;
     public GameObject groundPrefab;
     public GameObject zombiePrefab;
+    public GameObject pickupPrefab;
     public float width = 10f; // width of ground block (i.e., self)
+    public Vector2[] pickupPositions = new Vector2[]{
+      new Vector2(3,-1)
+    };
+    public Weapon[] weaponPickups;
 
   #endregion
 
@@ -16,6 +21,7 @@ public class GroundController : MonoBehaviour {
     private bool m_NextBlockInitialized = false;
     private float m_cameraWidth; // width of camera, used to decide when to create & delete ground blocks
     private string m_enemyName = "enemy";
+    private string m_pickupName = "pickup";
     private Vector2[] m_enemyPositions = new Vector2[]{
       new Vector2(1,0),
       new Vector2(3,1),
@@ -35,6 +41,7 @@ public class GroundController : MonoBehaviour {
 
       _ClearOldObstacles();
       _InitObstacles();
+      _InitPickups();
     }
 
     private void FixedUpdate () {
@@ -90,7 +97,7 @@ public class GroundController : MonoBehaviour {
 
     private void _ClearOldObstacles () {
       foreach (Transform child in transform) {
-        if (child.name == m_enemyName) {
+        if (child.name == m_enemyName || child.name == m_pickupName) {
           Destroy(child.gameObject);
         }
       }
@@ -106,6 +113,32 @@ public class GroundController : MonoBehaviour {
         GameObject enemy = Instantiate(zombiePrefab, transform.position, Quaternion.identity, transform);
         enemy.transform.localPosition = position;
         enemy.name = m_enemyName;
+      }
+    }
+
+    private void _InitPickups () {
+      // generate pickups only if block is outside camera view
+      if (transform.position.x < m_cameraWidth / 2) {
+        return;
+      }
+
+      foreach(Vector2 position in pickupPositions) {
+        Weapon weapon = _SelectPickup();
+
+        if (weapon == null) {
+          Debug.Log("weapon not found");
+          return;
+        }
+
+        GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity, transform);
+        pickup.transform.localPosition = position;
+        pickup.name = m_pickupName;
+        SpriteRenderer sr = pickup.GetComponent<SpriteRenderer>();
+        sr.sprite = weapon.icon;
+      }
+
+      Weapon _SelectPickup () {
+        return weaponPickups?[0];
       }
     }
 
