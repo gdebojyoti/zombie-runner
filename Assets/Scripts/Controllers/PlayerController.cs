@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour {
     public int positionMultiplier = 1;
     public GameObject bulletPrefab;
     public float verticalSpeed = 10f;
+    public FloatReference maxHp; // max hit points that player can have
+    public FloatReference hp; // current hit points that player has
+    public WeaponHandler weaponHandler;
   
   #endregion
 
@@ -27,10 +30,14 @@ public class PlayerController : MonoBehaviour {
 
     private void Start() {
       this.m_rb = GetComponent<Rigidbody2D>();
+      hp.value = 100; // reset hit points to 100 at the beginning
     }
 
     private void Update() {
       _CheckForInputs();
+
+      // TODO: testing consistent damage to player
+      hp.value -= Time.deltaTime * 10;
     }
 
     private void FixedUpdate() {
@@ -74,6 +81,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void _Fire () {
+      weaponHandler.weapon?.Fire();
       GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
 

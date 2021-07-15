@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd56400057a54c6b84281faf699aa88, type: 3}
+  m_Name: Divinity
+  m_EditorClassIdentifier: 
+  weaponName: Divinity
+  icon: {fileID: 21300000, guid: 6b049161cdbe2412f86049f9ba9bc6a7, type: 3}
+  type: {fileID: 11400000, guid: ffb2fc0d653be4d5186869f49e3b7c79, type: 2}
+  ammoType: {fileID: 11400000, guid: 20cb3659d8b014680a6fb69523fbfca8, type: 2}
+  range: 0
+  damagePerShot: 0
+  rpm: 0
+  chance: 0.2

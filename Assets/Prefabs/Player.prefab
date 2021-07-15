@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 199405119}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1873596717
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 68251a99d60e64898955d01a801a36ac, type: 3}
   m_Color: {r: 0.5568628, g: 0.26666668, b: 0.6784314, a: 1}
@@ -122,6 +122,9 @@ MonoBehaviour:
   positionMultiplier: 1
   bulletPrefab: {fileID: 4175453208602195539, guid: 926ac81e3c829493cacd39afdb59af5c, type: 3}
   verticalSpeed: 10
+  maxHp: {fileID: 11400000, guid: a43f5eaf2577e411cb03ac77b1236fca, type: 2}
+  hp: {fileID: 11400000, guid: a8350fe2a6b2b4b6cbed65671c86c6df, type: 2}
+  weaponHandler: {fileID: 11400000, guid: cd28f21454fde4aa4ae7f1439d5601e2, type: 2}
 --- !u!61 &199405119
 BoxCollider2D:
   m_ObjectHideFlags: 0

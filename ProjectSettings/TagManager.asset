@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 784764409
+    locked: 0
+  - name: Pickups
+    uniqueID: 3306997699
     locked: 0
   - name: Enemies
     uniqueID: 2188108895
