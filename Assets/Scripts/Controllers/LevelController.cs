@@ -21,6 +21,7 @@ public class LevelController : MonoBehaviour {
   #region private methods
 
     private void _CheckForInputs () {
+      // TODO: Temp stuff; to be removed later
       // press 1 ~ 4 to switch between sword, pistol, laser & grenade launcher
       if (Input.GetKeyDown(KeyCode.Alpha1)) {
         _SetWeapon(1);
