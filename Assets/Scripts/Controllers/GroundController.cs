@@ -123,7 +123,7 @@ public class GroundController : MonoBehaviour {
       }
 
       foreach(Vector2 position in pickupPositions) {
-        Weapon weapon = _SelectPickup();
+        Weapon weapon = _AssignRandomWeapon();
 
         if (weapon == null) {
           Debug.Log("weapon not found");
@@ -133,12 +133,20 @@ public class GroundController : MonoBehaviour {
         GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity, transform);
         pickup.transform.localPosition = position;
         pickup.name = m_pickupName;
+        
         SpriteRenderer sr = pickup.GetComponent<SpriteRenderer>();
         sr.sprite = weapon.icon;
+
+        PickupController pc = pickup.GetComponent<PickupController>();
+        pc.weapon = weapon;
       }
 
-      Weapon _SelectPickup () {
-        return weaponPickups?[0];
+      // assign a random weapon to the pickup
+      Weapon _AssignRandomWeapon () {
+        if (weaponPickups.Length == 0) {
+          return null;
+        }
+        return weaponPickups[Random.Range(0, weaponPickups.Length)];
       }
     }
 

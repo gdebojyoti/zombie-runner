@@ -135,6 +135,7 @@ MonoBehaviour:
   pickupPositions:
   - {x: 3, y: -1}
   weaponPickups:
+  - {fileID: 11400000, guid: 4a60f2036117f4799b150297b0bffe8a, type: 2}
   - {fileID: 11400000, guid: a2da29b774ec24cd59c8fe467bb5250d, type: 2}
   - {fileID: 11400000, guid: d95485df8d78d45bab02af59fec8d3f1, type: 2}
   - {fileID: 11400000, guid: 81629e1d2b0f345e59623144cb2d14f1, type: 2}

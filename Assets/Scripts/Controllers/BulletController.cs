@@ -17,7 +17,6 @@ public class BulletController : MonoBehaviour {
   #endregion
   
   private void Start () {
-    Debug.Log("Fired!");
     m_rb = GetComponent<Rigidbody2D>();
     origin = transform.position;
   }
@@ -32,13 +31,14 @@ public class BulletController : MonoBehaviour {
 
   private void OnCollisionEnter2D (Collision2D other) {
     string tag = other.gameObject.tag;
-    Debug.Log("Damaged: " + other.gameObject.tag);
 
     // TODO: use constants for values like "Enemy"
     // on collision with enemy, destroy bullet & enemy
     if (tag == "Enemy") {
       Destroy(other.gameObject); // destroy enemy
       Destroy(gameObject); // destroy self
+    } else {
+      Debug.Log("Damaged: " + other.gameObject.tag);
     }
   }
 

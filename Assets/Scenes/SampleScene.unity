@@ -374,10 +374,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 2954484553112243791, guid: 78f60744b93e549519032fac18f97f86, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78f60744b93e549519032fac18f97f86, type: 3}
 --- !u!1001 &5456432073749457960
@@ -387,10 +383,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1922114556, guid: af3daae67c3eb4163b5d6aa4ea0347a6, type: 3}
-      propertyPath: weaponHandler
-      value: 
-      objectReference: {fileID: 11400000, guid: cd28f21454fde4aa4ae7f1439d5601e2, type: 2}
     - target: {fileID: 5456432073507295186, guid: af3daae67c3eb4163b5d6aa4ea0347a6, type: 3}
       propertyPath: m_Name
       value: Player

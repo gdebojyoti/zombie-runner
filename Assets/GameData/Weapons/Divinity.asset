@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Divinity
   m_EditorClassIdentifier: 
   weaponName: Divinity
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6b049161cdbe2412f86049f9ba9bc6a7, type: 3}
   type: {fileID: 11400000, guid: ffb2fc0d653be4d5186869f49e3b7c79, type: 2}
   ammoType: {fileID: 11400000, guid: 20cb3659d8b014680a6fb69523fbfca8, type: 2}
   range: 0
