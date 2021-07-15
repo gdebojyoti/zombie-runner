@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Witherhoard
   m_EditorClassIdentifier: 
   weaponName: Witherhoard
-  icon: {fileID: 0}
-  type: 0
-  ammoType: 3
+  icon: {fileID: 21300000, guid: 908e2ed51b13e42ca9f2ab9663ff2b9e, type: 3}
+  type: {fileID: 11400000, guid: ffb2fc0d653be4d5186869f49e3b7c79, type: 2}
+  ammoType: {fileID: 11400000, guid: a3ebce9ed671c4c6bb9a4523d9e7333a, type: 2}
   range: 0
   damagePerShot: 10000
   rpm: 0

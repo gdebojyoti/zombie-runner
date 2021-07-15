@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Falling Guillotine
   m_EditorClassIdentifier: 
   weaponName: Falling Guillotine
-  icon: {fileID: 0}
-  type: 1
-  ammoType: 0
+  icon: {fileID: 21300000, guid: dbca5a90c6bab4774970e360fb7b6249, type: 3}
+  type: {fileID: 11400000, guid: cf3b65e6a028d4a93a0e45b4581e6448, type: 2}
+  ammoType: {fileID: 0}
   range: 0
   damagePerShot: 0
   rpm: 0

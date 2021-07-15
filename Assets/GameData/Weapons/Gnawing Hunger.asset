@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gnawing Hunger
   m_EditorClassIdentifier: 
   weaponName: Gnawing Hunger
-  icon: {fileID: 0}
-  type: 0
-  ammoType: 1
+  icon: {fileID: 21300000, guid: c8a1b953736b8478f8a1b977c2eb9685, type: 3}
+  type: {fileID: 11400000, guid: ffb2fc0d653be4d5186869f49e3b7c79, type: 2}
+  ammoType: {fileID: 11400000, guid: e0c134bd617714fbc9c6b8b6828b2d8d, type: 2}
   range: 0
   damagePerShot: 0
   rpm: 0

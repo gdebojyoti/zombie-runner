@@ -1,11 +1,11 @@
-public enum WeaponType {
-  Range,
-  Melee
-}
+// public enum WeaponType {
+//   Range,
+//   Melee
+// }
 
-public enum AmmoType {
-  None,
-  Bullet,
-  Beam,
-  Grenade
-}
+// public enum AmmoType {
+//   None,
+//   Bullet,
+//   Beam,
+//   Grenade
+// }
