@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMovementSpeed: -2
   groundPrefab: {fileID: 2954484553112243791}
-  zombiePrefab: {fileID: 7281821624037485799, guid: 71e9296b13b474981a5f130406fae313, type: 3}
+  obstaclePrefab: {fileID: 7281821624037485799, guid: 71e9296b13b474981a5f130406fae313, type: 3}
   pickupPrefab: {fileID: 4549050070726452676, guid: acc6a47908e11460e985570ef897815a, type: 3}
   width: 10
   pickupPositions:

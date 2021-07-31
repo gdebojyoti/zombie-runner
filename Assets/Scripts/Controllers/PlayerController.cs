@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour {
     private bool m_isMoving = false; // set to true if player is switching between lanes
     private Vector2 m_target; // target position when player switches lanes
 
-  #endregion
+    #endregion
 
-  #region MonoBehaviour methods
+    #region MonoBehaviour methods
 
     private void Start() {
       this.m_rb = GetComponent<Rigidbody2D>();
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
       _CheckForInputs();
 
       // TODO: testing consistent damage to player
-      hp.value -= Time.deltaTime * 10;
+      // hp.value -= Time.deltaTime * 10;
     }
 
     private void FixedUpdate() {
@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D other) {
       Debug.Log("collided with: " + other.gameObject.tag);
+        if(other.gameObject.tag == "Obstacle")
+        {
+            hp.value -= 5;
+        }
     }
 
   #endregion
@@ -65,6 +69,12 @@ public class PlayerController : MonoBehaviour {
       if (Input.GetKeyDown(KeyCode.F)) {
         _Fire();
       }
+
+        // temporary player deletion key 'X'
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            // stop play
+        }
     }
 
     // move up or down lanes

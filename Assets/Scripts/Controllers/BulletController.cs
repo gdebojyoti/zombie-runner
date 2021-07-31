@@ -34,7 +34,8 @@ public class BulletController : MonoBehaviour {
 
     // TODO: use constants for values like "Enemy"
     // on collision with enemy, destroy bullet & enemy
-    if (tag == "Enemy") {
+    // on collision with obstacle, discuss what should be done
+    if (tag == "Obstacle" || tag == "Enemy") {
       Destroy(other.gameObject); // destroy enemy
       Destroy(gameObject); // destroy self
     } else {
